@@ -1,4 +1,5 @@
-﻿if (args.Length != 3)
+﻿
+if (args.Length != 3)
 {
   Console.WriteLine("Usage: dotnet run <target-file> <target-column> <search-key>");
   return -1;
@@ -7,14 +8,13 @@
 string targetFile = args[0];
 if (!File.Exists(targetFile))
 {
-  Console.WriteLine("Error: target file does not exists (\"{}\")", targetFile);
+  Console.WriteLine("Error: target file does not exists {0}", targetFile);
   return -1;
 }
 
-int targetColumn;
-if (!int.TryParse(args[1], out targetColumn))
+if (!int.TryParse(args[1], out int targetColumn))
 {
-  Console.WriteLine("Error: target column must be a number (\"{}\")", targetColumn);
+  Console.WriteLine("Error: target column must be a number");
   return -1;
 }
 
